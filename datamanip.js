@@ -2,13 +2,7 @@
 "use strict";
 
 exports.__esModule = true;
-exports.mapKeys = mapKeys;
-exports.extendMapKeys = extendMapKeys;
-exports.irange = irange;
-exports.objFromItemFn = objFromItemFn;
-exports.objFromValFn = objFromValFn;
-
-function mapKeys(keyMap, arr) {
+var mapKeys = R.curry(function (keyMap, arr) {
   return arr.map(function (pt) {
     var mapped = {};
     _.forEach(keyMap, function (val, key) {
@@ -20,23 +14,28 @@ function mapKeys(keyMap, arr) {
     });
     return mapped;
   });
-}
+});
 
-function extendMapKeys(keyMap, arr) {
+exports.mapKeys = mapKeys;
+var extendMapKeys = R.curry(function (keyMap, arr) {
   return R.zipWith(R.merge, arr, mapKeys(keyMap, arr));
-}
+});
 
-function irange(m, n) {
+exports.extendMapKeys = extendMapKeys;
+var irange = R.curry(function (m, n) {
   return R.range(m, Math.floor(n + 1));
-}
+});
 
-function objFromItemFn(fn, keys) {
+exports.irange = irange;
+var objFromItemFn = R.curry(function (fn, keys) {
   return R.fromPairs(keys.map(fn));
-}
+});
 
-function objFromValFn(fn, keys) {
+exports.objFromItemFn = objFromItemFn;
+var objFromValFn = R.curry(function (fn, keys) {
   return objFromItemFn(function (k) {
     return [k, fn(k)];
   }, keys);
-}
+});
+exports.objFromValFn = objFromValFn;
 
