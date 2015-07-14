@@ -1,11 +1,12 @@
 {
   "name": "datamanip",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Data manipulation",
   "main": "datamanip.js",
   "scripts": {
     "test": "echo \"no tests yet\\n\"",
-    "build": "node_modules/babel/bin/babel/index.js datamanip.src.js > datamanip.js"
+    "build": "node_modules/babel/bin/babel/index.js datamanip.src.js > datamanip.js",
+    "prepublish": "npm run build"
   },
   "author": "Martin Camacho <martin@kensho.com>",
   "license": "MIT",

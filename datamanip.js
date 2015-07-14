@@ -8,9 +8,9 @@ var mapKeys = R.curry(function (keyMap, arr) {
   return arr.map(function (pt) {
     var mapped = {};
     _.forEach(keyMap, function (val, key) {
-      if (check.string(val)) {
+      if (typeof val === 'string') {
         mapped[key] = pt[val];
-      } else if (check.fn(val)) {
+      } else {
         mapped[key] = val(pt);
       }
     });
