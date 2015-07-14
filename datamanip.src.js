@@ -1,4 +1,6 @@
 // These are not meant to be super fast - we can improve as necessary.
+var R = require('ramda')
+
 export var mapKeys = R.curry(function (keyMap, arr) {
   return arr.map(pt => {
     var mapped = {}
