@@ -1,7 +1,9 @@
 // These are not meant to be super fast - we can improve as necessary.
-"use strict";
+'use strict';
 
 exports.__esModule = true;
+var R = require('ramda');
+
 var mapKeys = R.curry(function (keyMap, arr) {
   return arr.map(function (pt) {
     var mapped = {};
