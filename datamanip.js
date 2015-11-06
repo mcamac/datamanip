@@ -8,7 +8,7 @@ var R = require('ramda');
 var mapKeys = R.curry(function (keyMap, arr) {
   return arr.map(function (pt) {
     var mapped = {};
-    _.forEach(keyMap, function (val, key) {
+    R.mapObjIndexed(keyMap, function (val, key) {
       if (typeof val === 'string') {
         mapped[key] = pt[val];
       } else {
